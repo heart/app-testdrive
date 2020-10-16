@@ -1,0 +1,25 @@
+{
+  "name": "app-testdrive-firebase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:heart/app-testdrive-firebase.git",
+  "author": "Heart 3DS <narongrit@3dsinteractive.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.ts",
+    "start": "node index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^14.11.8",
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  }
+}

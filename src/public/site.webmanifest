@@ -1,0 +1,24 @@
+{
+    "name": "PAM Test Drive",
+    "short_name": "PAM Test Drive",
+    "description": "Test Drive For PAM App",
+    "display": "standalone",
+    "scope": "/",
+    "icons": [{
+      "src": "public/pwa-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }, {
+      "src": "public/pwa-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }, {
+      "src": "public/pwa-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }, {
+      "src": "public/pwa-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }]
+  }
