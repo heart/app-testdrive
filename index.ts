@@ -117,10 +117,14 @@ app.post('/upload/:environment', upload.single('file'), function (req, res, next
     }
 
     let destFilename = `${uploadPath}/${req.file.filename}`
-    fs.rename(req.file.path, destFilename, function (err) {
-      if (err) throw err
-    })
     
+    fs.copyFile(req.file.path, destFilename, (err) => {
+        if (err){
+          console.log(err)
+        }
+        fs.unlinkSync(req.file.path)
+    });
+
     if(req.body.platform == "ios"){
       let plistFilkeName = req.file.filename.split(".")[0]+".plist"
       let plistFile = createPlistFile(destFilename, req.body.app_id, req.body.version, req.body.app_name)
