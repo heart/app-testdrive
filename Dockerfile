@@ -4,7 +4,6 @@ WORKDIR /home/node/app
 
 COPY public public
 COPY views views
-COPY .env .env
 COPY index.ts index.ts
 COPY package.json package.json
 
