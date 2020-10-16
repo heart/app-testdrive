@@ -2,10 +2,12 @@ FROM node:14.13.1-alpine3.10
 
 WORKDIR /home/node/app
 
-COPY src src
+COPY public public
+COPY views views
+COPY .env .env
+COPY index.ts index.ts
 COPY package.json package.json
-COPY package-lock.json package-lock.json
-RUN apk add python make g++ libc-dev pkgconfig gcc
+
 RUN npm install
 
 EXPOSE 3000

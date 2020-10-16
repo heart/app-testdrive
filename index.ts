@@ -137,7 +137,7 @@ app.get('/android/:customer/:environment',function (req, res){
   let environment = req.params.environment
   let customer = req.params.customer
 
-  const directoryPath = path.join(__dirname, `downloads/${customer}/${environment}`)
+  const directoryPath = path.join(__dirname, `/downloads/${customer}/${environment}`)
   
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
@@ -173,7 +173,7 @@ app.get('/ios/:customer/:environment',function (req, res){
   let environment = req.params.environment
   let customer = req.params.customer
 
-  const directoryPath = path.join(__dirname, `downloads/${customer}/${environment}`)
+  const directoryPath = path.join(__dirname, `/downloads/${customer}/${environment}`)
   
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
