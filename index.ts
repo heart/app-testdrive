@@ -7,7 +7,7 @@ const bodyParser= require('body-parser')
 var fs = require('fs')
 var path = require('path')
 var dateFormat = require('dateformat');
-
+  
 const myBodyParser =  bodyParser.urlencoded()
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -24,7 +24,7 @@ var storage = multer.diskStorage({
     cb(null, 'upload')
   },
   filename: function (req, file, cb) {
-    var dateString = dateFormat(new Date(), "yyyymmmdS_h_MM_ss");
+    var dateString = new Date().getTime() //dateFormat(new Date(), "yyyymmmdS_hh_MM_ss");
     cb(null, `${dateString}${path.extname(file.originalname)}`)
   }
 })
@@ -88,6 +88,7 @@ app.delete('/upload/:customer/:environment/:file', function(req, res){
             fs.unlinkSync(`${directoryPath}/${files[i]}`)
           }
         }
+ 
         res.send({success:true})
     })
   }
@@ -148,9 +149,7 @@ app.get('/android/:customer/:environment',function (req, res){
           res.status(404).send('Page Not Found.')
           return console.log('Unable to scan directory: ' + err);
         } 
-        
-        files.sort().reverse()
-
+            
         let binaryFile = []
         for(let i in files){
           if(files[i].endsWith('.apk')){
@@ -161,14 +160,22 @@ app.get('/android/:customer/:environment',function (req, res){
             binaryFile.push(data)
           }
         }
-        
+        // console.log(binaryFile);
+        // console.log('///////////////');
+        binaryFile.sort().reverse();
+        //console.log('///////////////');
+        //console.log(binaryFile);
+       // binaryFile .reverse();
+      //  console.log('///////////////');
+ 
         res.render('download', {
           platform:"android",
           iosLink:`/ios/${req.params.customer}/${req.params.environment}`,
           androidLink:`/android/${req.params.customer}/${req.params.environment}`,
           customer:req.params.customer,
           environment: req.params.environment,
-          files: binaryFile
+          files: binaryFile,
+          dateFormat:dateFormat
         })
     })
 })
@@ -185,7 +192,7 @@ app.get('/ios/:customer/:environment',function (req, res){
           return console.log('Unable to scan directory: ' + err);
         } 
         
-        files.sort().reverse()
+        // files.sort().reverse()
 
         let binaryFile = []
         for(let i in files){
@@ -198,13 +205,17 @@ app.get('/ios/:customer/:environment',function (req, res){
           }
         }
         
+        binaryFile.sort().reverse();
+
+
         res.render('download', {
           platform:"ios",
           iosLink:`/ios/${req.params.customer}/${req.params.environment}`,
           androidLink:`/android/${req.params.customer}/${req.params.environment}`,
           customer:req.params.customer,
           environment: req.params.environment,
-          files: binaryFile
+          files: binaryFile,
+          dateFormat:dateFormat
         })
     })
 
@@ -263,3 +274,5 @@ function createPlistFile(fileName, appId, appVersion, appName){
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+ 

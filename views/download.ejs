@@ -145,9 +145,14 @@
                </thead>
                <tbody>
 
-                  <% for (var i = 0; i < files.length; i++) { %>
+                  <% for (var i = 0; i < files.length; i++) {
+                     let filename =  files[i].name; 
+                     
+                     let coverfilename = dateFormat(new Date(parseInt(filename)) ,'yyyymmmdS_hh_MM_ss');
+                        <!-- console.log(filename); -->
+                     %>
                      <tr>
-                        <td><%= files[i].name %></td>
+                        <td><%- coverfilename   %></td>
                         <td><a href="<%= files[i].link %>">Click to Install</a></td>
                       </tr>
                   <% } %>
