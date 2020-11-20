@@ -7,7 +7,7 @@ const bodyParser= require('body-parser')
 var fs = require('fs')
 var path = require('path')
 var dateFormat = require('dateformat');
-  
+
 const myBodyParser =  bodyParser.urlencoded()
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -29,6 +29,8 @@ var storage = multer.diskStorage({
   }
 })
 var upload = multer({ storage: storage })
+
+
 
 app.use('/public', express.static( path.join(__dirname, 'public')))
 app.use('/downloads', express.static(path.join(__dirname, 'downloads')))
@@ -143,7 +145,8 @@ app.get('/android/:customer/:environment',function (req, res){
   let customer = req.params.customer
 
   const directoryPath = path.join(__dirname, `/downloads/${customer}/${environment}`)
-  
+  const imgPath = path.join(__dirname, `/public/lastest.png`)
+
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
           res.status(404).send('Page Not Found.')
@@ -160,14 +163,8 @@ app.get('/android/:customer/:environment',function (req, res){
             binaryFile.push(data)
           }
         }
-        // console.log(binaryFile);
-        // console.log('///////////////');
         binaryFile.sort().reverse();
-        //console.log('///////////////');
-        //console.log(binaryFile);
-       // binaryFile .reverse();
-      //  console.log('///////////////');
- 
+
         res.render('download', {
           platform:"android",
           iosLink:`/ios/${req.params.customer}/${req.params.environment}`,
