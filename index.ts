@@ -192,7 +192,7 @@ app.get('/ios/:customer/:environment',function (req, res){
           return console.log('Unable to scan directory: ' + err);
         } 
         
-        files.sort().reverse()
+        // files.sort().reverse()
 
         let binaryFile = []
         for(let i in files){
@@ -205,13 +205,17 @@ app.get('/ios/:customer/:environment',function (req, res){
           }
         }
         
+        binaryFile.sort().reverse();
+
+
         res.render('download', {
           platform:"ios",
           iosLink:`/ios/${req.params.customer}/${req.params.environment}`,
           androidLink:`/android/${req.params.customer}/${req.params.environment}`,
           customer:req.params.customer,
           environment: req.params.environment,
-          files: binaryFile
+          files: binaryFile,
+          dateFormat:dateFormat
         })
     })
 
