@@ -145,7 +145,7 @@ app.get('/android/:customer/:environment',function (req, res){
   let customer = req.params.customer
 
   const directoryPath = path.join(__dirname, `/downloads/${customer}/${environment}`)
-  const imgPath = path.join(__dirname, `/public/lastest.png`)
+  
 
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
