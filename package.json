@@ -1,7 +1,7 @@
 {
   "name": "app-testdrive-firebase",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "git@github.com:heart/app-testdrive-firebase.git",
   "author": "Heart 3DS <narongrit@3dsinteractive.com>",
   "license": "MIT",
