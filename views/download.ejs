@@ -7,9 +7,13 @@
    <meta name="description" content="">
    <meta name="author" content="">
 
+   <script src="https://kit.fontawesome.com/1c3b512daa.js" crossorigin="anonymous"></script>
+
+   <link rel="icon" href="/favicon.ico">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
    <link rel="manifest" href="/site.webmanifest">
    <title>App Testing Portal</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -58,7 +62,7 @@
       html,
       body {
          height: 100%;
-         background-color: #8F3EE0;
+         background-color: #8b66e1;
       }
 
       body {
@@ -128,6 +132,30 @@
          font-weight: 700;
       }
 
+      .platform-icon {
+         font-size: 4rem;
+      }
+
+      .download-link {
+         color: orange;
+      }
+
+      .latest-badge {
+         padding-left: 5px;
+         padding-right: 5px;
+         border-radius: 5px;
+         background: rgb(173, 249, 59);
+         background: linear-gradient(180deg, rgba(173, 249, 59, 1) 0%, rgba(134, 157, 64, 1) 100%);
+      }
+
+      .brand-title {
+         color: black;
+      }
+
+      .latest-badge i {
+         color: tomato;
+      }
+
       /*
          * Footer
          */
@@ -151,17 +179,22 @@
          </div>
       </header>
       <main role="main" class="inner cover">
-         <h1 class="cover-heading"><%= customer %></h1>
+         <h1 class="cover-heading brand-title"><%= customer %></h1>
+
+         <%if( platform == "ios"){%>
+         <i class="fab fa-apple platform-icon"></i>
+         <%}else if( platform == "android" ){%>
+         <i class="fab fa-android platform-icon"></i>
+         <% } %>
+
          <h2 class="cover-heading text-warning"><%= platform %> <%= environment %></h2>
          <p class="lead">Please don't share to the public</p>
-
-
 
          <table class="table table-striped table-dark">
             <thead>
                <tr>
-                  <th scope="col">Date</th>
                   <th></th>
+                  <th scope="col">Date</th>
                   <th scope="col">Install</th>
                </tr>
             </thead>
@@ -171,13 +204,15 @@
                      let coverfilename = dateFormat(new Date(parseInt(filename)) ,'dddd, dS mmmm, yyyy, HH:MM:ss ');
                      %>
                <tr>
-                  <td><%- coverfilename   %></td>
                   <td>
                      <% if ( i == 0) { %>
-                     <img src="/public/lastest.png" alt="">
+                     <div class="latest-badge"><i class="fas fa-star"></i> Latest </div>
+
                      <% } %>
                   </td>
-                  <td><a href="<%= files[i].link %>">Click to Install</a></td>
+                  <td><%- coverfilename   %></td>
+                  <td><a class="download-link" href="<%= files[i].link %>"><i class="far fa-arrow-alt-circle-down"></i>
+                        Click to Install</a></td>
                </tr>
                <% } %>
             </tbody>
