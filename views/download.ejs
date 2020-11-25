@@ -199,9 +199,11 @@
                </tr>
             </thead>
             <tbody>
-               <% for (var i = 0; i < files.length; i++) {
+               <% 
+               let hour7 = 7*60*60*1000
+               for (var i = 0; i < files.length; i++) {
                      let filename =  files[i].name; 
-                     let coverfilename = dateFormat(new Date(parseInt(filename)) ,'dddd, dS mmmm, yyyy, HH:MM:ss ');
+                     let coverfilename = dateFormat(new Date(parseInt(filename)+hour7) ,'dddd, dS mmmm, yyyy, HH:MM:ss ');
                      %>
                <tr>
                   <td>
