@@ -1,228 +1,255 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
+      }
     </style>
     <style>
-        /*
+      /*
            * Globals
            */
-        /* Links */
-        a,
-        a:focus,
-        a:hover {
-            color: #fff;
-        }
+      /* Links */
+      a,
+      a:focus,
+      a:hover {
+        color: #fff;
+      }
 
-        /* Custom default button */
-        .btn-secondary,
-        .btn-secondary:hover,
-        .btn-secondary:focus {
-            color: #333;
-            text-shadow: none;
-            /* Prevent inheritance from `body` */
-            background-color: #fff;
-            border: .05rem solid #fff;
-        }
+      /* Custom default button */
+      .btn-secondary,
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        color: #333;
+        text-shadow: none;
+        /* Prevent inheritance from `body` */
+        background-color: #fff;
+        border: 0.05rem solid #fff;
+      }
 
-        /*
+      /*
            * Base structure
            */
-        html,
-        body {
-            height: 100%;
-            background-color: #8b66e1;
-        }
+      html,
+      body {
+        height: 100%;
+        background-color: #8b66e1;
+      }
 
-        body {
-            display: -ms-flexbox;
-            display: flex;
-            color: #fff;
-            text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-            box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-        }
+      body {
+        display: -ms-flexbox;
+        display: flex;
+        color: #fff;
+        text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+      }
 
-        .cover-container {
-            max-width: 42em;
-        }
+      .cover-container {
+        max-width: 42em;
+      }
 
-        /*
+      /*
            * Header
            */
-        .masthead {
-            margin-bottom: 2rem;
-        }
+      .masthead {
+        margin-bottom: 2rem;
+      }
 
+      .masthead-brand {
+        margin-bottom: 0;
+      }
+
+      .nav-masthead .nav-link {
+        padding: 0.25rem 0;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        border-bottom: 0.25rem solid transparent;
+      }
+
+      .nav-masthead .nav-link:hover,
+      .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .nav-masthead .nav-link + .nav-link {
+        margin-left: 1rem;
+      }
+
+      .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+      }
+
+      @media (min-width: 48em) {
         .masthead-brand {
-            margin-bottom: 0;
+          float: left;
         }
 
-        .nav-masthead .nav-link {
-            padding: .25rem 0;
-            font-weight: 700;
-            color: rgba(255, 255, 255, .5);
-            background-color: transparent;
-            border-bottom: .25rem solid transparent;
+        .nav-masthead {
+          float: right;
         }
+      }
 
-        .nav-masthead .nav-link:hover,
-        .nav-masthead .nav-link:focus {
-            border-bottom-color: rgba(255, 255, 255, .25);
-        }
-
-        .nav-masthead .nav-link+.nav-link {
-            margin-left: 1rem;
-        }
-
-        .nav-masthead .active {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        @media (min-width: 48em) {
-            .masthead-brand {
-                float: left;
-            }
-
-            .nav-masthead {
-                float: right;
-            }
-        }
-
-        /*
+      /*
            * Cover
            */
-        .cover {
-            padding: 0 1.5rem;
-        }
+      .cover {
+        padding: 0 1.5rem;
+      }
 
-        .cover .btn-lg {
-            padding: .75rem 1.25rem;
-            font-weight: 700;
-        }
+      .cover .btn-lg {
+        padding: 0.75rem 1.25rem;
+        font-weight: 700;
+      }
 
-        .platform-icon {
-            font-size: 4rem;
-        }
+      .platform-icon {
+        font-size: 4rem;
+      }
 
-        .download-link {
-            color: orange;
-        }
+      .download-link {
+        color: orange;
+      }
 
-        .latest-badge {
-            padding-left: 5px;
-            padding-right: 5px;
-            border-radius: 5px;
-            background: rgb(173, 249, 59);
-            background: linear-gradient(180deg, rgba(173, 249, 59, 1) 0%, rgba(134, 157, 64, 1) 100%);
-        }
+      .latest-badge {
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 5px;
+        background: rgb(173, 249, 59);
+        background: linear-gradient(
+          180deg,
+          rgba(173, 249, 59, 1) 0%,
+          rgba(134, 157, 64, 1) 100%
+        );
+      }
 
-        .brand-title {
-            color: black;
-        }
+      .brand-title {
+        color: black;
+      }
 
-        .latest-badge i {
-            color: tomato;
-        }
+      .latest-badge i {
+        color: tomato;
+      }
 
-        /*
+      /*
            * Footer
            */
-        .mastfoot {
-            color: rgba(255, 255, 255, .5);
-        }
+      .mastfoot {
+        color: rgba(255, 255, 255, 0.5);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-
+      <div class="row">
+        <h3 class="masthead-brand">PAM Test Drive</h3>
+      </div>
+      <center>
+        <h4>Login User</h4>
         <div class="row">
-            <h3 class="masthead-brand">PAM Test Drive</h3>
+          <div class="col">
+            <form id="formcreateuser" method="" action="">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  class="form-control"
+                  id="username"
+                  aria-describedby="username"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="password"
+                />
+              </div>
+              <!-- <input type="submit" class="btn btn-primary" /> -->
+              <button id="submitform" class="btn btn-success">Login</button>
+            </form>
+          </div>
         </div>
-        <center>
-            <h4>Login User</h4>
-            <div class="row">
-                <div class="col">
-                    <form id="formcreateuser" method="" action="">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" id="username"
-                                aria-describedby="username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="password">
-                        </div>
-                        <!-- <input type="submit" class="btn btn-primary" /> -->
-                        <button id="submitform" class="btn btn-success">Login</button>
-                    </form>
-
-                </div>
-            </div>
-
-
-        </center>
-
-
+      </center>
     </div>
 
-
-
     <script>
-        $(document).ready(function () {
-            $('#submitform').click(function (e) { 
-                e.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "/login",
-                    data: $("#formcreateuser").serialize(),
-                    dataType: "JSON",
-                    success: function (response) {
-                        if(response.success===true){
-                            document.cookie = `token=${response.token}`
-                        }
-                        location.href = '/manager'
-                    }
+      $(document).ready(function () {
+        $("#submitform").click(function (e) {
+          e.preventDefault();
+          $.ajax({
+            type: "POST",
+            url: "/login",
+            data: $("#formcreateuser").serialize(),
+            dataType: "JSON",
+            success: function (response) {
+              if (response.success === true) {
+                document.cookie = `token=${response.token}`;
+              }
+              location.href = "/manager";
+            },
+            error: function (request, status, error) {
+              if (request.status === 500) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Status",
+                  text: request.responseText,
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    location.reload();
+                  }
                 });
-            });
+              }
+            },
+          });
         });
+      });
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-
-    </script>
-</body>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </body>
 </html>
