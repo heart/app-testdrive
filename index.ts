@@ -535,3 +535,40 @@ app.post("/login", function (req, res) {
     }
   );
 });
+
+
+app.get("/select/:customer", function (req, res) {
+  let environment = req.params.environment;
+  let customer = req.params.customer;
+  console.log(customer);
+
+  const directoryPath = path.join(
+    __dirname,
+    `/downloads/${req.params.customer}`
+  ); //${customer}/${environment}`)
+  //console.log(directoryPath);
+
+  fs.readdir(directoryPath, function (err, files) {
+    let folderList = files
+      .filter(function (f) {
+        let fpath = path.join(
+          __dirname,
+          `/downloads/${req.params.customer}/${f}`
+        );
+        let stat = fs.statSync(fpath);
+
+        console.log();
+
+        return stat.isDirectory();
+      })
+      .map(function (f) {
+        return `${req.params.customer}/${f}`;
+      });
+
+    console.log(folderList);
+    res.render("download_folderlist", {
+      folder: folderList,
+      customer: customer,
+    });
+  });
+});
